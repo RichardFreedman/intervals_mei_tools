@@ -1,0 +1,44 @@
+# Byte-compiled Python files
+*.py[cod]
+__pycache__/
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# PyInstaller
+dist/
+build/
+PyInstaller/
+*.spec
+
+# Unit test / coverage reports
+.coverage
+.htmlcov
+.pytest_cache/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs and databases
+*.log
+*.tmp
+*.sqlite3
