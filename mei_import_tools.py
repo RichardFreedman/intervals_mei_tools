@@ -27,6 +27,19 @@ class GitHubFileManager:
             raise Exception(f"Failed to fetch tree SHA: {response.data.decode('utf-8')}")
             
         return json.loads(response.data.decode('utf-8'))['object']['sha']
+    # def _get_tree_sha(self, branch='main'):
+    #     """Get the tree SHA for a given branch"""
+    #     api_url = f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{branch}"
+    #     headers = {
+    #         'Accept': 'application/vnd.github+json',
+    #         'X-GitHub-Api-Version': '2022-11-28'
+    #     }
+        
+    #     response = self.http.request('GET', api_url, headers=headers)
+    #     if response.status != 200:
+    #         raise Exception(f"Failed to fetch tree SHA: {response.data.decode('utf-8')}")
+            
+    #     return json.loads(response.data.decode('utf-8'))['object']['sha']
     
     def _get_raw_url(self, path):
         """Convert API path to raw.githubusercontent.com URL"""
