@@ -7,7 +7,6 @@ setup(
     install_requires=[
         'urllib3',
         'certifi',
-        'json',
         'fnmatch'
     ],
     python_requires='>=3.6'
