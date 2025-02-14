@@ -1,13 +1,24 @@
 import urllib3
 import json
 import fnmatch
+import os
 
 class GitHubFileManager:
     def __init__(self, base_url):
         """Initialize with a GitHub repository URL"""
         self.base_url = base_url
         self.owner, self.repo = self._parse_base_url(base_url)
-        self.http = urllib3.PoolManager()
+        self.http = urllib3.PoolManager(
+            timeout=urllib3.Timeout(total=30),
+            maxsize=10,
+            cert_reqs='CERT_REQUIRED',
+            ca_certs=certifi.where(),
+            retries=urllib3.Retry(
+                total=3,
+                backoff_factor=1,
+                status_forcelist=[429, 500, 502, 503, 504]
+            )
+        )
         
     def _parse_base_url(self, url):
         """Parse repository owner and name from base URL"""
@@ -27,19 +38,6 @@ class GitHubFileManager:
             raise Exception(f"Failed to fetch tree SHA: {response.data.decode('utf-8')}")
             
         return json.loads(response.data.decode('utf-8'))['object']['sha']
-    # def _get_tree_sha(self, branch='main'):
-    #     """Get the tree SHA for a given branch"""
-    #     api_url = f"https://api.github.com/repos/{self.owner}/{self.repo}/git/ref/heads/{branch}"
-    #     headers = {
-    #         'Accept': 'application/vnd.github+json',
-    #         'X-GitHub-Api-Version': '2022-11-28'
-    #     }
-        
-    #     response = self.http.request('GET', api_url, headers=headers)
-    #     if response.status != 200:
-    #         raise Exception(f"Failed to fetch tree SHA: {response.data.decode('utf-8')}")
-            
-    #     return json.loads(response.data.decode('utf-8'))['object']['sha']
     
     def _get_raw_url(self, path):
         """Convert API path to raw.githubusercontent.com URL"""
@@ -79,7 +77,7 @@ class GitHubFileManager:
         for item in tree_data['tree']:
             if directory_path and not item['path'].startswith(directory_path):
                 continue
-                
+                    
             if item['type'] == 'blob':
                 filename = item['path'].split('/')[-1]
                 
