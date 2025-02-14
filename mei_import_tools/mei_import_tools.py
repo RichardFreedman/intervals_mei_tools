@@ -1,3 +1,10 @@
+# __init__.py
+from .mei_import_tools import GitHubFileManager, GitHubConfig
+
+# Add this line to prevent circular imports
+__package__ = __name__
+
+# mei_import_tools.py
 import urllib3
 import json
 import fnmatch
