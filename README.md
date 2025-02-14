@@ -54,3 +54,14 @@ for url in bach_urls:
 Sample result (of course you don't need to print them in the notebook!)
 
 ![alt text](screenshot_3892.png)
+
+
+Now you can use these in various functions:
+
+One piece:
+
+`piece = importScore(bachurls[0])`
+
+Or a set of them:
+
+`corpus = CorpusBase(bach_urls)`
