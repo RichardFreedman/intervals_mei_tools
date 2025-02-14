@@ -2,6 +2,7 @@ import urllib3
 import json
 import fnmatch
 import os
+import certifi 
 
 class GitHubConfig:
     def __init__(self, base_url, **kwargs):
