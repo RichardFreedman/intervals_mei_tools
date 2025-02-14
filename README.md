@@ -51,3 +51,6 @@ bach_urls = manager.list_files("02_Lab_Data/Duos_For_Intervals", patterns=['*Bac
 for url in bach_urls:
     print(url)
 ```
+Sample result (of course you don't need to print them in the notebook!)
+
+![alt text](screenshot_3892.png)
