@@ -1,20 +1,20 @@
-[project]
+[tool.poetry]
 name = "intervals_mei_tools"
 version = "1.0.0"
 description = "Tools for importing MEI intervals from GitHub"
-authors = ["Your Name <your.email@example.com>"]
-readme = "README.md"
-requires-python = ">=3.6"
 
-[tool.poetry]
-packages = [
-    { include = "src" }
+# Author information
+authors = [
+    "Richard Freedman <your.email@example.com>"
 ]
+
+[tool.poetry.dependencies]
+python = "^3.8" 
+urllib3 = "^2.0"
+certifi = "^2023.11.17"
+
+[tool.poetry.dev-dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.dependencies]
-urllib3 = "^2.0"
-certifi = "^2023.11.28"
