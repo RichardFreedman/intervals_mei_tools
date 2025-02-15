@@ -1,17 +1,16 @@
 [tool.poetry]
 name = "intervals_mei_tools"
-version = "1.0.0"
+version = "1.0.1"
 description = "Tools for importing MEI intervals from GitHub"
-
-# Author information
 authors = [
     "Richard Freedman <your.email@example.com>"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8" 
+python = "^3.8"
 urllib3 = "^2.0"
 certifi = "^2023.11.17"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
