@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "intervals_mei_tools"
+name = "mei_import_tools"
 version = "1.0.1"
 description = "Tools for importing MEI intervals from GitHub"
 authors = [
@@ -13,5 +13,5 @@ certifi = "^2023.11.17"
 
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
