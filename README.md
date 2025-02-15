@@ -2,31 +2,39 @@
 
 `mei_import_tools.py` is a script that will help you import MEI files directly from github for use with CRIM Intervals Notebooks.
 
-### Installation
+### Step 1:  Installation
 
 From your virtual environment, install `mei_import_tools` as follows:
 
-`pip install git+https://github.com/RichardFreedman/intervals_mei_tools.git@main`
+```python
+pip install git+https://github.com/RichardFreedman/intervals_mei_tools.git
+```
 
 If you previously installed the tools and need to update:
 
-`pip install --force-reinstall git+https://github.com/RichardFreedman/intervals_mei_tools.git@main`
+```python
+pip install --force-reinstall git+https://github.com/RichardFreedman/intervals_mei_tools.git@main
+```
 
 Check installation:
 
-`python -c "from mei_import_tools import GitHubFileManager; print(GitHubFileManager.__module__)"`
+```python
+python -c "from mei_import_tools import GitHubFileManager; print(GitHubFileManager.__module__)"
+```
 
 
-### Use in the Notebook
+### Step 2:  Use in Your Notebook
 
 Include this code as part of your import statements:
 
-`from mei_import_tools import GitHubFileManager, GitHubConfig`
+```python
+from mei_import_tools import GitHubFileManager, GitHubConfig
+```
 
 When you are ready to load remote files:  
 
 ```python
-# define the 'base' repository--your files should be here
+# define the 'base' repository--your files should be here.  For example:
 base_url = "https://github.com/RichardFreedman/Encoding_Music"
 
 # invoke the file manager by passing that base url to the tool
@@ -35,7 +43,7 @@ manager = GitHubFileManager(base_url)
 # this will return a LIST OF URLS, which you can in turn sort or slice to find the ones you need
 ```
 
-Here are some sample sets:
+Here are some sample sets, based on the contents of the main github `base_url` used above:
 
 ```python
 
